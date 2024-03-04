@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width", initial scale="1.0">
+        <title>Weather App By Ashwin</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="card">
+            <div class="search">
+                <input type="text" placeholder="Enter City Name",
+                spellcheck="false">
+                <button> <img src="icons/search.png" > </button>
+            </div>
+            <div class="weather">
+                <img src="icons/giphy.gif" class="weather-icon">
+                <h1 class="temp">31°c </h1>
+                <h2 class="city">Nagpur</h2>
+                <div class="details">
+                    <div class="col">
+                        <img src="icons/humidity.png">
+                        <div>
+                            <p class="humidity">50%</p>
+                            <p>humidity</p>
+                        </div>
+                    </div>
+                    
+                    <div class="col">
+                        <img src="icons/wind.png">
+                        <div>
+                            <p class="wind">15km/h</p>
+                            <p>Wind Speed</p> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            const apiKey ="561d037ca2d14770cbcb4f2ef6d6987f";
+            const apiUrl ="https://api.openweathermap.org/data/2.5/weather?&units=matric&q=bangalore";
+
+            async function checkWeather(){
+                const response =await fetch(apiUrl+ '&appid=${apiKey}');
+                var data = await response.json();
+
+                console.log(data);
+            }
+            checkWeather();
+        </script>
+
+        
+        
+    </body>
+</html>
